@@ -1,8 +1,12 @@
 [
   {
     "id": "neg_01",
-    "type": "open_ended",
-    "question": "La tecnología es importante, pero entender el negocio, lo es aún más, para darle sentido a lo que hacemos ❤️\nEs por ello que te pedimos que respondas estas preguntillas sobre el negocio MAPFRE. ¿Estás preparado/a?"
+    "type": "radio",
+    "question": "La tecnología es importante, pero entender el negocio, lo es aún más, para darle sentido a lo que hacemos ❤️\n\nEs por ello que te pedimos que respondas estas preguntillas sobre el negocio MAPFRE. ¿Estás preparado/a?",
+    "options" : [
+      "Sí",
+      "¡Sí!"
+    ]
   },
   {
     "id": "neg_02",

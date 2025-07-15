@@ -1,0 +1,102 @@
+[
+  {
+    "id": "da_01",
+    "type": "open_ended",
+    "question": "Describe textualmente y con detalle los componentes de una arquitectura para procesar datos de 'clickstream' de un sitio web a gran escala. Tu descripción debe funcionar como el 'plano' del sistema. Para cada componente clave, debes explicar: a) Su función en la arquitectura, b) Una tecnología específica que elegirías y c) La justificación de tu elección. El sistema debe cubrir todo el flujo, desde la ingesta del evento hasta su disponibilidad para análisis en tiempo real y análisis batch."
+  },
+  {
+    "id": "da_02",
+    "type": "open_ended",
+    "question": "Tienes que diseñar la arquitectura de datos para gestionar la información de una plataforma de seguros de coche de nueva generación. Las entidades principales son: Clientes, Pólizas, Siniestros y Datos de Telemática. Describe cómo modelarías estos datos. ¿Usarías una única base de datos relacional para todo, o una combinación de tecnologías? Justifica tu elección para cada entidad, basándote en la naturaleza de los datos y sus patrones de acceso."
+  },
+  {
+    "id": "da_03",
+    "type": "open_ended",
+    "question": "Imagina que eres el arquitecto responsable de una gran plataforma online. ¿Cómo diseñarías un sistema resiliente para la ingesta de eventos a gran escala que pueda soportar fallos de una zona de disponibilidad completa sin perder datos?"
+  },
+  {
+    "id": "da_04",
+    "type": "open_ended",
+    "question": "Una empresa quiere lanzar un servicio de recomendación de productos en su e-commerce. Como arquitecto, tienes que diseñar la plataforma de MLOps subyacente. ¿Qué componentes clave tendría esta plataforma para permitir a los Data Scientists entrenar, desplegar y monitorizar sus modelos de forma eficiente?"
+  },
+  {
+    "id": "da_05",
+    "type": "open_ended",
+    "question": "Imagina que tienes que migrar un Data Warehouse on-premise de 50TB a una solución cloud moderna. Describe a alto nivel el plan de migración. ¿Qué fases principales tendría y cuál es el mayor riesgo a mitigar?"
+  },
+  {
+    "id": "da_06",
+    "type": "open_ended",
+    "question": "Explica la diferencia entre una arquitectura híbrida y una multi-nube. ¿Cuándo elegirías una sobre la otra?"
+  },
+  {
+    "id": "da_07",
+    "type": "open_ended",
+    "question": "Explica el problema fundamental que resuelven los formatos de tabla transaccionales sobre un Data Lake tradicional basado en ficheros. Luego, compara dos de ellos en base a tres criterios técnicos que consideres relevantes."
+  },
+  {
+    "id": "da_08",
+    "type": "open_ended",
+    "question": "Un pipeline diario que se ejecuta en un clúster de procesamiento distribuido en la nube procesa 1TB de datos y está tardando demasiado, empezando a incumplir su SLA. Describe tu metodología paso a paso para diagnosticar el cuello de botella y qué optimizaciones comunes aplicarías."
+  },
+  {
+    "id": "da_09",
+    "type": "open_ended",
+    "question": "Describe cómo sería un pipeline de CI/CD para gestionar una infraestructura de datos definida como código. ¿Qué etapas son cruciales para garantizar un despliegue seguro y validado?"
+  },
+  {
+    "id": "da_10",
+    "type": "open_ended",
+    "question": "Estás diseñando un Data Lakehouse en la nube que almacenará información personal identificable. Describe las capas de seguridad que implementarías, desde el perímetro de la red hasta el nivel de la columna en una tabla."
+  },
+  {
+    "id": "da_11",
+    "type": "open_ended",
+    "question": "¿Qué es una arquitectura 'serverless' y cuál es su principal ventaja y desventaja desde la perspectiva de un arquitecto de datos?"
+  },
+  {
+    "id": "da_12",
+    "type": "open_ended",
+    "question": "Explica la diferencia entre RPO y RTO. Luego, dame un ejemplo de una arquitectura para un Data Warehouse crítico con un RTO y RPO bajos, y otra para un sistema de reporting menos crítico con un RTO y RPO más relajados."
+  },
+  {
+    "id": "da_13",
+    "type": "open_ended",
+    "question": "En el contexto de la monitorización de una arquitectura de datos, ¿cuál es la diferencia entre monitorización, observabilidad y AIOps?"
+  },
+  {
+    "id": "da_14",
+    "type": "open_ended",
+    "question": "Con la llegada de la IA Generativa, las empresas quieren construir aplicaciones sobre sus propios datos utilizando el patrón RAG. Como arquitecto, ¿qué componentes tecnológicos clave necesitarías para construir una plataforma RAG escalable y segura sobre un Data Lake corporativo?"
+  },
+  {
+    "id": "da_15",
+    "type": "open_ended",
+    "question": "Una startup de fintech te contrata como su primer Arquitecto de Datos. Tienen que construir toda su plataforma desde cero. ¿Qué criterios clave usarías para decidir entre los principales proveedores de nube? No me hables solo de servicios específicos, sino de la estrategia de la plataforma a largo plazo."
+  },
+  {
+    "id": "da_16",
+    "type": "open_ended",
+    "question": "El concepto de Data Mesh propone un cambio de paradigma desde una arquitectura de datos centralizada a una descentralizada y orientada a dominios. ¿Cuáles son, en tu opinión, los dos mayores desafíos, uno técnico y uno organizacional, para implementar con éxito una arquitectura de Data Mesh?"
+  },
+  {
+    "id": "da_17",
+    "type": "open_ended",
+    "question": "Más allá de simplemente mirar el dashboard de facturación al final del mes, ¿qué estrategias y herramientas proactivas implementarías desde el día uno para gobernar y optimizar los costes de una plataforma de datos en la nube?"
+  },
+  {
+    "id": "da_18",
+    "type": "open_ended",
+    "question": "El gobierno de datos es crucial. ¿Qué tres pilares consideras fundamentales para establecer un programa de gobierno de datos efectivo en una organización grande, y qué tipo de herramientas o procesos soportarían cada pilar?"
+  },
+  {
+    "id": "da_19",
+    "type": "open_ended",
+    "question": "El cumplimiento de normativas como GDPR es una responsabilidad clave del arquitecto de datos. Si estuvieras diseñando una plataforma de datos para el mercado europeo, ¿qué tres características o patrones de arquitectura implementarías específicamente para facilitar el cumplimiento de esta normativa?"
+  },
+  {
+    "id": "da_20",
+    "type": "open_ended",
+    "question": "Tu empresa quiere reducir su huella de carbono. Como arquitecto de datos, ¿qué recomendaciones harías para hacer que la plataforma de datos sea más sostenible y eficiente energéticamente, sin comprometer significativamente el rendimiento?"
+  }
+]

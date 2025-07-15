@@ -1,0 +1,199 @@
+[
+  {
+    "id": "de_01",
+    "type": "open_ended",
+    "question": "¿Cuándo elegirías una base de datos relacional (SQL) como PostgreSQL en lugar de una NoSQL como MongoDB? Dame un caso de uso para cada una."
+  },
+  {
+    "id": "de_02",
+    "type": "open_ended",
+    "question": "En el contexto de un Data Warehouse, ¿qué es un esquema en estrella (*star schema*)? Describe brevemente qué es una tabla de hechos y una tabla de dimensiones."
+  },
+  {
+    "id": "de_03",
+    "type": "open_ended",
+    "question": "¿Por qué las bases de datos analíticas modernas (como BigQuery, Redshift o Snowflake) utilizan un almacenamiento columnar en lugar del tradicional almacenamiento por filas? ¿Cuál es su principal ventaja?"
+  },
+  {
+    "id": "de_04",
+    "type": "open_ended",
+    "question": "Tienes una tabla de eventos con miles de millones de filas y una columna de fecha (`event_date`). Las consultas casi siempre filtran por un rango de fechas. ¿Qué estrategia de base de datos aplicarías para acelerar drásticamente estas consultas?"
+  },
+  {
+    "id": "de_05",
+    "type": "open_ended",
+    "question": "Explícame con tus palabras la diferencia entre un Data Lake y un Data Warehouse. ¿Conviven en una misma arquitectura?"
+  },
+  {
+    "id": "de_06",
+    "type": "open_ended",
+    "question": "¿Por qué son importantes las claves primarias y los índices en una base de datos relacional? ¿Qué pasa si tienes una tabla enorme sin ningún índice y haces un `WHERE` sobre una columna no indexada?"
+  },
+  {
+    "id": "de_07",
+    "type": "open_ended",
+    "question": "¿Cuál es la diferencia entre un proceso ETL (Extract, Transform, Load) y un ELT (Extract, Load, Transform)? ¿Por qué el enfoque ELT ha ganado tanta popularidad en las arquitecturas cloud modernas?"
+  },
+  {
+    "id": "de_08",
+    "type": "open_ended",
+    "question": "¿Qué significa que una tarea de un pipeline de datos sea idempotente? ¿Por qué es una propiedad tan deseable?"
+  },
+  {
+    "id": "de_09",
+    "type": "open_ended",
+    "question": "En herramientas de orquestación como Apache Airflow, ¿qué es un DAG (Directed Acyclic Graph)?"
+  },
+  {
+    "id": "de_10",
+    "type": "open_ended",
+    "question": "Dame un ejemplo de un caso de uso de negocio que requiera un pipeline de datos en *streaming* (tiempo real) y otro que sea adecuado para un pipeline *batch* (por lotes)."
+  },
+  {
+    "id": "de_11",
+    "type": "open_ended",
+    "question": "Imagina que descubres un bug en la lógica de transformación de un pipeline que ha estado corriendo durante 3 meses. Necesitas corregir los datos históricos. ¿Cómo llamarías a este proceso y qué estrategia seguirías para llevarlo a cabo sin interrumpir el funcionamiento diario del pipeline?"
+  },
+  {
+    "id": "de_12",
+    "type": "open_ended",
+    "question": "¿Qué estrategias o herramientas implementarías dentro de un pipeline automatizado para asegurar la calidad de los datos que se están procesando?"
+  },
+  {
+    "id": "de_13",
+    "type": "open_ended",
+    "question": "¿Por qué es preferible usar un formato de fichero como Parquet en lugar de CSV en un Data Lake para análisis con herramientas como Spark?"
+  },
+  {
+    "id": "de_14",
+    "type": "open_ended",
+    "question": "¿Qué es la \"evaluación perezosa\" (*lazy evaluation*) en Apache Spark?"
+  },
+  {
+    "id": "de_15",
+    "type": "open_ended",
+    "question": "Explica brevemente el paradigma MapReduce."
+  },
+  {
+    "id": "de_16",
+    "type": "open_ended",
+    "question": "En el contexto de streaming de datos, ¿qué es Apache Kafka y para qué se utiliza principalmente?"
+  },
+  {
+    "id": "de_17",
+    "type": "open_ended",
+    "question": "Describe los componentes principales de una aplicación Spark: ¿qué es el Driver y qué son los Executors?"
+  },
+  {
+    "id": "de_18",
+    "type": "open_ended",
+    "question": "En un sistema de ficheros distribuido como HDFS o un Data Lake en S3, ¿por qué tener una gran cantidad de ficheros muy pequeños es un problema de rendimiento para herramientas como Spark?"
+  },
+  {
+    "id": "de_19",
+    "type": "open_ended",
+    "question": "¿Qué es la Infraestructura como Código (IaC)? Menciona una herramienta popular para implementarla."
+  },
+  {
+    "id": "de_20",
+    "type": "open_ended",
+    "question": "¿Por qué es útil usar Docker para desarrollar y desplegar pipelines de datos?"
+  },
+  {
+    "id": "de_21",
+    "type": "open_ended",
+    "question": "¿Qué es una arquitectura \"serverless\" y cómo se puede aplicar en un pipeline de datos? Da un ejemplo con un servicio cloud."
+  },
+  {
+    "id": "de_22",
+    "type": "open_ended",
+    "question": "Describe cómo sería un flujo de CI/CD (Integración Continua / Despliegue Continuo) para un pipeline de datos definido en Apache Airflow. ¿Qué pasos automatizarías?"
+  },
+  {
+    "id": "de_23",
+    "type": "open_ended",
+    "question": "Si tuvieras que elegir un Data Warehouse en la nube para una nueva empresa, ¿qué factores considerarías al comparar opciones como Amazon Redshift, Google BigQuery y Snowflake?"
+  },
+  {
+    "id": "de_24",
+    "type": "open_ended",
+    "question": "Tu pipeline de ingesta de datos diario ha fallado silenciosamente durante 3 días. Nadie se dio cuenta. ¿Qué tipo de monitorización y sistema de alertas deberías haber tenido implementado para evitar esto?"
+  },
+  {
+    "id": "de_25",
+    "type": "open_ended",
+    "question": "En Python, ¿cuál es la diferencia fundamental entre una lista (`list`) y una tupla (`tuple`)?"
+  },
+  {
+    "id": "de_26",
+    "type": "open_ended",
+    "question": "¿Para qué sirven `*args` y `**kwargs` en la definición de una función en Python?"
+  },
+  {
+    "id": "de_27",
+    "type": "open_ended",
+    "question": "Estás procesando un fichero de 20 GB que no cabe en memoria. ¿Por qué un generador que use `yield` es la solución correcta en Python?"
+  },
+  {
+    "id": "de_28",
+    "type": "open_ended",
+    "question": "¿Cómo podrías usar un decorador de Python para añadir una funcionalidad de reintentos (*retries*) a una función que extrae datos de una API inestable?"
+  },
+  {
+    "id": "de_29",
+    "type": "open_ended",
+    "question": "Tienes que extraer todos los datos de una API REST para un pipeline. ¿Qué desafíos comunes podrías encontrar y cómo los manejarías?"
+  },
+  {
+    "id": "de_30",
+    "type": "open_ended",
+    "question": "Tienes 1 millón de IDs de productos en una tabla y necesitas enriquecerlos con datos de otra tabla que también tiene 1 millón de productos. En tu script de Python, ¿sería más eficiente cargar los datos de la segunda tabla en una lista o en un diccionario para hacer la búsqueda? ¿Por qué?"
+  },
+  {
+    "id": "de_31",
+    "type": "open_ended",
+    "question": "¿En qué situaciones valdría la pena usar Clases y Objetos (POO) para construir un pipeline de datos, en lugar de un simple script procedimental?"
+  },
+  {
+    "id": "de_32",
+    "type": "open_ended",
+    "question": "Imagina que necesitas construir un pipeline para ingerir en tiempo real los precios de las criptomonedas de un exchange. La única forma de acceder a estos datos es a través de su API de **WebSockets**.\n> *   En términos de diseño del pipeline, ¿en qué se diferencia fundamentalmente este desafío de consumir una API REST tradicional?\n> *   ¿Qué componentes clave tendría tu arquitectura para capturar y almacenar estos datos de forma fiable?"
+  },
+  {
+    "id": "de_33",
+    "type": "open_ended",
+    "question": "Escribe un ejemplo en PySpark donde se lea un archivo Parquet y se filtre por una columna \"status\" con valor \"active\", y se guarde el resultado como tabla Hive particionada por \"country\"."
+  },
+  {
+    "id": "de_34",
+    "type": "open_ended",
+    "question": "Estás desarrollando un ETL en PySpark. ¿Cómo implementarías un sistema robusto de logging y captura de errores para registrar los fallos sin detener toda la ejecución?"
+  },
+  {
+    "id": "de_35",
+    "type": "open_ended",
+    "question": "Durante la ejecución de un trabajo Spark en clúster, un paso de groupBy().agg() se vuelve lento y falla por falta de memoria. ¿Cómo investigarías y resolverías este problema?"
+  },
+  {
+    "id": "de_36",
+    "type": "multiple_choice",
+    "question": "Dado un archivo CSV con millones de registros, ¿cuál es la forma más eficiente de leerlo con Python para empezar a procesarlo línea a línea, sin cargar todo en memoria?",
+    "options": [
+      "pd.read_csv('file.csv', chunksize=10000)",
+      "with open('file.csv') as f:\n\nfor line in f:\n\n...",
+      "open('file.csv').read()",
+      "pd.read_csv('file.csv')"
+    ]
+  },
+  {
+    "id": "de_37",
+    "type": "multiple_choice",
+    "question": "¿Qué técnica usarías para mejorar el rendimiento de una transformación compleja con múltiples joins entre tablas grandes en PySpark?",
+    "options": [
+      "Usar broadcast en las tablas pequeñas",
+      "Reparticionar los datos aleatoriamente",
+      "Incrementar el número de particiones sin cambiar el resto",
+      "Aplicar cache() antes de cada join"
+    ]
+  }
+]
