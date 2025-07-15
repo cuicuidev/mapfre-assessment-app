@@ -3,22 +3,21 @@ import json
 import os
 import uuid
 from datetime import datetime, timedelta, timezone
-import time
 import re
+import random
 
 import boto3
 from botocore.exceptions import NoCredentialsError, PartialCredentialsError, ClientError
 from streamlit.components.v1 import html
 
 # --- CONFIGURATION ---
-QUESTIONNAIRE_DURATION_SECONDS = 120
+QUESTIONNAIRE_DURATION_SECONDS = 3600
 S3_SESSION_PREFIX = "sessions/"
 S3_INDEX_PREFIX = "session_index/"
 S3_FINAL_RESPONSE_PREFIX = "responses/" 
 
 
 # --- BOTO3 S3 HELPER FUNCTIONS ---
-
 def get_s3_client():
     """Initializes a boto3 S3 client."""
     try:
@@ -128,10 +127,20 @@ def load_questionnaire_from_query(module_names):
 
 def display_question(q_data, saved_response):
     st.subheader(q_data['question'])
-    q_type, opts, q_id = q_data.get("type", "open_ended"), q_data.get("options", []), q_data["id"]
+    q_type = q_data.get("type", "open_ended")
+    opts = q_data.get("options", [])
+    q_id = q_data["id"]
+
     if q_type == "open_ended": return st.text_area("Your Answer", value=saved_response or "", key=q_id, height=150)
-    if q_type == "multiple_choice": return st.radio("Choose one:", opts, index=opts.index(saved_response) if saved_response in opts else 0, key=q_id)
     if q_type == "multi_select": return st.multiselect("Select:", opts, default=[o for o in saved_response if o in opts] if isinstance(saved_response, list) else [], key=q_id)
+    if q_type == "multi_select_pills":return st.pills("Select:", opts, default=[o for o in saved_response if o in opts] if isinstance(saved_response, list) else [], key=q_id, selection_mode="multi")
+    if q_type == "multiple_choice":
+        response = st.selectbox(
+            "Choose one:",
+            options=["NS/NC"] + opts
+        )
+
+        return response if response != "NS/NC" else None
 
 def run_timer_component(end_time):
     end_time_ms = int(end_time.timestamp() * 1000)
@@ -180,7 +189,7 @@ def main():
     
     s3_client = get_s3_client();
     if not s3_client: return
-    bucket_name = st.secrets.aws.s3_bucket_name
+    bucket_name = st.secrets.s3.bucket_name
 
     session_id_from_url = st.query_params.get("session_id")
     current_session = None
@@ -194,7 +203,7 @@ def main():
             email = st.text_input("Email")
             if st.form_submit_button("Start or Resume Assessment"):
                 if full_name and email:
-                    # --- NEW COMPLETION CHECK ---
+                    # --- COMPLETION CHECK ---
                     if check_if_already_completed(s3_client, bucket_name, questionnaire_id, email):
                         st.error("This email address has already completed this assessment.")
                     else:

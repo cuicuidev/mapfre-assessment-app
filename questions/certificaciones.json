@@ -1,0 +1,102 @@
+[
+    {
+        "id" : "certificaciones_01",
+        "type" : "multi_select_pills",
+        "question" : "Por último pero no menos importante, para acompañarte en tu desarrollo, nos gustaría saber las certificaciones o formaciones que tienes.\nMarca cuales de las siguientes certificaciones tienes.",
+        "options" : [
+            "Introducción a servicios analíticos en AWS",
+            "AWS Certified Cloud Practitioner (CLF-C01)",
+            "AWS Certified Data Analytics – Specialty (DAS-C01)",
+            "AWS Certified Solutions Architect – Associate (SAA-C03)",
+            "AWS Certified Developer – Associate (DVA-C02)",
+            "AWS Certified Machine Learning – Specialty (MLS-C01)",
+            "AWS Certified Solutions Architect – Professional (SAP-C02)",
+            "AWS Certified DevOps Engineer – Professional (DOP-C02)",
+
+            "Azure Fundamentals (AZ-900)",
+            "Microsoft Azure Data Fundamentals (DP-900)",
+            "Azure Data Engineer Associate (DP-203)",
+            "Azure AI Fundamentals (AI-900)",
+            "Azure Solutions Architect Expert (AZ-305)",
+            "Azure AI Engineer Associate (AI-102)",
+            "Azure DevOps Engineer Expert (AZ-400)",
+            "Azure Data Scientist Associate (DP-100)",
+
+            "DAMA Certification (Gobierno de Datos)",
+            "Certified Data Management Professional (CDMP - DAMA)",
+            "Certificaciones avanzadas en DAMA , ISO y Data Governance",
+
+            "Databricks Certified Spark Developer for Apache Spark",
+            "Databricks Lakehouse Fundamentals",
+            "Databricks Certified Data Engineer Associate",
+            "Databricks Certified Data Engineer Professional",
+
+            "OGAF® Certified (Enterprise Architecture)",
+
+            "Fabric AI and Machine Learning Certification",
+
+            "Programa especializado: Estadística avanzada para la ciencia de datos",
+            "Programa especializado: Fundamentos de ingeniería de software aplicada",
+            "Certified AI Expert",
+            "Data Storytelling for Business",
+            "AI For Everyone – Andrew Ng",
+            "Certified Analytics Professional (CAP)",
+            "Financial Modeling and Forecasting Financial Statements",
+
+            "Google Data Analytics (Coursera)",
+            "Google Data Analytics Professional Certificate",
+            "Google Advanced Data Analytics Certificate",
+            "Google Project Management: Professional Certificate",
+
+            "Introducción a BigQuery y Dataflow",
+            "Google Cloud Certified: Associate Cloud Engineer",
+            "Google Cloud Certified: Professional Data Engineer",
+            "Google Cloud Certified: Professional Machine Learning Engineer",
+            "Google Cloud Certified: Professional Cloud Architect",
+
+            "Hugging Face Transformers Certification",
+
+            "IBM Data Science (edX)",
+
+            "INSEAD – Data for Managers",
+
+            "Cursos básicos en Microsoft Learn",
+            "Microsoft Certified: Power BI Data Analyst Associate (PL-300)",
+
+            "MIT Sloan – Data-Driven Decision Making",
+            "MIT Sloan - Data Strategy (Executive Program)",
+
+            "NVIDIA Certified AI Developer",
+            "Lead ML Engineer (NVIDIA, Stanford AI)",
+
+            "OpenAI API Certification (No oficial)",
+
+            "PgMP (Program Management Professional – PMI)",
+            "PMI Agile Certified Practitioner (PMI-ACP)",
+
+            "SAFe Lean Portfolio Management",
+            "SAFe Program Consultant (SPC)",
+
+            "Scrum Master (Scrum.org o equivalente)",
+            "Scrum Master Certified (SMC) – ScrumStudy o PSM I – Scrum.org",
+
+            "Snowflake Data Cloud Fundamentals",
+            "Snowflake Advanced Architectures",
+
+            "Aprendizaje automático - Stanford deep learning IA",
+
+            "Terraform Hashicorp Associate",
+
+            "Kubernetes Administrator (CKA)",
+
+            "Certified Cloud Security Professional (CCSP)",
+
+            "TOGAF Certified"
+        ]
+    },
+    {
+        "id" : "certificaciones_02",
+        "type" : "open_ended",
+        "question" : "¿Tienes experiencia relacionada con los certificado que has seleccionado o tienes algún certificado que no aparece en las opciones anteriores? Sí es así, ¿podrías explicarnos un poco?"
+    }
+]

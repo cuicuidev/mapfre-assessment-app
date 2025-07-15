@@ -1,0 +1,112 @@
+[
+    {
+        "id" : "ia_01",
+        "type" : "multiple_choice",
+        "question" : "¿Cuál de las siguientes afirmaciones describe mejor el aprendizaje supervisado en inteligencia artificial?",
+        "options" : [
+            "Se entrena al modelo con ejemplos de entrada y salida esperada.",
+            "El sistema aprende mediante recompensas y castigos.",
+            "Es un método donde los algoritmos aprenden sin datos etiquetados.",
+            "Consiste en analizar patrones sin intervención humana."
+        ]
+    },
+    {
+        "id" : "ia_02",
+        "type" : "multiple_choice",
+        "question" : "¿Qué papel juega una \"función de pérdida\" en el entrenamiento de modelos de machine learning?",
+        "options" : [
+            "Evalúa qué tan lejos está la predicción del modelo respecto al resultado real.",
+            "Determina qué datos de entrada serán descartados.",
+            "Optimiza el uso de memoria del sistema.",
+            "Asegura que el modelo cumpla con los principios éticos."
+        ]
+    },
+    {
+        "id" : "ia_03",
+        "type" : "multiple_choice",
+        "question" : "¿Cuál de las siguientes opciones caracteriza mejor a un agente de IA Generativa?",
+        "options" : [
+            "Un sistema que combina razonamiento, memoria y acciones para operar de forma autónoma en entornos dinámicos.",
+            "Un modelo que responde preguntas sobre textos previamente entrenados.",
+            "Un asistente conversacional que simula diálogo sin ejecutar acciones.",
+            "Un modelo generativo que predice la siguiente palabra basada en el historial de conversación."
+        ]
+    },
+    {
+        "id" : "ia_04",
+        "type" : "multiple_choice",
+        "question" : "¿Cuál de las siguientes afirmaciones describe correctamente la interacción entre agentes de IA, el Model Context Protocol (MCP) y el protocolo Agent-to-Agent (A2A)?",
+        "options" : [
+            "MCP estructura el contexto de un agente (memoria, herramientas, objetivos), y A2A facilita la comunicación entre agentes transmitiendo la información de forma estructurada.",
+            "A2A define cómo los modelos almacenan su conocimiento, mientras que MCP actúa como motor de ejecución de código.",
+            "MCP y A2A son mecanismos de entrenamiento profundo que sustituyen al aprendizaje por refuerzo en agentes complejos.",
+            "MCP permite a los agentes competir entre sí sin compartir contexto, mientras que A2A asegura el aislamiento entre modelos."
+        ]
+    },
+    {
+        "id" : "ia_05",
+        "type" : "multiple_choice",
+        "question" : "¿Qué se entiende por \"explicabilidad\" en el contexto de la inteligencia artificial?",
+        "options" : [
+            "La habilidad de un modelo para justificar sus decisiones de manera comprensible.",
+            "La eficiencia energética del modelo al ejecutarse.",
+            "La capacidad de un sistema para traducir texto entre idiomas.",
+            "La facilidad con la que el modelo puede predecir nuevas entradas."
+        ]
+    },
+    {
+        "id" : "ia_06",
+        "type" : "multiple_choice",
+        "question" : "¿Cuál de los siguientes NO es un componente típico de un sistema de MLOps?",
+        "options" : [
+            "Entrenamiento sin supervisión humana.",
+            "Monitorización del rendimiento en producción.",
+            "Orquestación de pipelines de entrenamiento.",
+            "Control de versiones de los modelos."
+        ]
+    },
+    {
+        "id" : "ia_07",
+        "type" : "multiple_choice",
+        "question" : "¿Cuál de las siguientes afirmaciones sobre los datos usados para entrenar modelos de IA es correcta?",
+        "options" : [
+            "Pueden introducir sesgos si no están representados adecuadamente.",
+            "Siempre deben estar anonimizados para poder ser utilizados.",
+            "No tienen impacto significativo en los sesgos del modelo.",
+            "Son irrelevantes si el modelo es suficientemente complejo."
+        ]
+    },
+    {
+        "id" : "ia_08",
+        "type" : "multiple_choice",
+        "question" : "¿Qué categoría propone el Reglamento de IA de la UE (AI Act) para una IA que gestiona currículums y preselecciona candidatos?",
+        "options" : [
+            "Riesgo alto.",
+            "Riesgo mínimo.",
+            "Riesgo limitado.",
+            "Riesgo prohibido."
+        ]
+    },
+    {
+        "id" : "ia_09",
+        "type" : "multiple_choice",
+        "question" : "¿Cuál es uno de los objetivos principales del Reglamento Europeo de Inteligencia Artificial (AI Act)?",
+        "options" : [
+            "Garantizar que los sistemas de IA sean seguros y respeten los derechos fundamentales.",
+            "Fomentar la supremacía tecnológica de Europa sobre EE.UU.",
+            "Reemplazar el RGPD (Reglamento General de Protección de Datos).",
+            "Impedir el desarrollo de modelos de IA de código abierto."
+        ]
+    },
+    {
+        "id" : "ia_10",
+        "type" : "multiple_choice",
+        "question" : "¿Qué práctica estaría más cerca de una IA “prohibida” según el AI Act?",
+        "options" : [
+            "Un sistema de puntuación social aplicado por un gobierno a sus ciudadanos.",
+            "Un sistema que predice abandonos escolares en base a historial académico.",
+            "Un chatbot conversacional en una app bancaria.",
+            "Una IA que optimiza el consumo energético en una fábrica."
+        ]
+    }
+]
