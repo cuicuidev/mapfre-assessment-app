@@ -1,0 +1,65 @@
+[
+  {
+    "id": "strat_01",
+    "type": "open_ended",
+    "question": "¿Cómo definirías los criterios para priorizar una cartera de proyectos Data & IA cuando los recursos son limitados?"
+  },
+  {
+    "id": "strat_02",
+    "type": "open_ended",
+    "question": "Imagina que estás diseñando la hoja de ruta 2026–2028 del área Data & IA. ¿Qué criterios considerarías para definir las capacidades clave a desarrollar (tecnológicas, organizativas o de personas) y cómo lo alinearías con los objetivos de la compañía?"
+  },
+  {
+    "id": "strat_03",
+    "type": "open_ended",
+    "question": "Supón que estás en una organización donde cada unidad de negocio lanza sus propios proyectos de datos sin coordinación central. Desde la Oficina de DATA&IA te piden definir un modelo operativo que evite duplicidades, fomente sinergias y garantice gobierno. ¿Cómo lo plantearías?"
+  },
+  {
+    "id": "strat_04",
+    "type": "open_ended",
+    "question": "¿Cómo garantizarías que el modelo de trabajo con proveedores externos de Data & IA sea escalable, eficiente y alineado con la estrategia del área a largo plazo?"
+  },
+  {
+    "id": "strat_05",
+    "type": "open_ended",
+    "question": "El forecast del área muestra que se va a sobrepasar el presupuesto en un 15% por incremento en costes de servicios cloud y proveedores. ¿Qué acciones tomarías para corregir la desviación sin paralizar proyectos clave?"
+  },
+  {
+    "id": "strat_06",
+    "type": "multiple_select_pills",
+    "question": "Si tuvieses que armar un informe mensual de control presupuestario del área… ¿Qué elementos NO pueden faltar?",
+    "options": [
+      "Detalle del presupuesto planificado vs. ejecutado por categoría o proveedor",
+      "Análisis de desviaciones respecto al forecast",
+      "Cálculo automático del ROI de todos los casos de uso",
+      "Observaciones clave sobre consumos pendientes o riesgos de ejecución"
+    ]
+  },
+  {
+    "id": "strat_07",
+    "type": "open_ended",
+    "question": "¿Qué diferencia hay entre un informe operativo y uno estratégico en el contexto de un área Data & IA?"
+  },
+  {
+    "id": "strat_08",
+    "type": "multiple_select_pills",
+    "question": "¿Cuáles de los siguientes elementos contribuyen a que un reporting mensual a Dirección General sobre el estado del área Data & IA sea efectivo y útil?",
+    "options": [
+      "Evolución mensual del consumo de presupuesto y % de ejecución",
+      "Número total de reuniones internas del equipo",
+      "Mapa de proyectos activos, con estado e impacto previsto",
+      "Indicadores de entrega (plazos, satisfacción de usuarios internos)",
+      "Propuesta de nuevos proyectos para el mes siguiente sin validación previa"
+    ]
+  },
+  {
+    "id": "strat_09",
+    "type": "open_ended",
+    "question": "Supongamos que debes diseñar un plan formativo para un perfil de negocio que comienza a trabajar con productos de DATA & IA. ¿Qué tomarías en cuenta para diseñarlo o qué incluirías?"
+  },
+  {
+    "id": "strat_10",
+    "type": "open_ended",
+    "question": "Tu área tiene asignado un presupuesto limitado para el año, y se han solicitado simultáneamente tres nuevas iniciativas de datos desde distintas áreas de negocio. Todas parecen interesantes, pero exceden tu capacidad de ejecución y presupuesto. ¿Qué harías primero?"
+  }
+]

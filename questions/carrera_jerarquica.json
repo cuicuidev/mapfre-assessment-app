@@ -1,0 +1,27 @@
+[
+  {
+    "id": "hc_01",
+    "type": "open_ended",
+    "question": "MAPFRE busca incrementar el Margen de Contribución de la línea de negocio Autos, con foco en dos palancas clave: 1. Mejorar la retención de pólizas (reducción de cancelaciones). 2. Impulsar la venta cruzada digital de productos de Ahorro e Inversión a clientes actuales. El objetivo esperado es alcanzar un impacto ≥ +1 punto porcentual en el margen en un periodo de 12 meses. ¿Cómo abordarías este reto como un OKR estratégico del área de Datos?"
+  },
+  {
+    "id": "hc_02",
+    "type": "open_ended",
+    "question": "Considerando el reto de negocio de Autos, ¿cuál es tu lectura del problema? ¿Qué hipótesis iniciales propondrías para empezar a guiar el análisis desde el área de datos?"
+  },
+  {
+    "id": "hc_03",
+    "type": "open_ended",
+    "question": "¿Cómo estructurarías esta iniciativa como un OKR del área de datos? Incluye: Objetivo y Key Results (KRs), hitos y entregables para los primeros 3 meses. Describe también a alto nivel: el pipeline de datos, el modelo analítico propuesto, el cuadro de mando, y una estimación de personas y presupuesto (considerando un coste anual de 120.000 € por FTE)."
+  },
+  {
+    "id": "hc_04",
+    "type": "open_ended",
+    "question": "¿Cómo presentarías esta iniciativa y su impacto esperado a distintos niveles de la organización (Dirección General, equipos comerciales, equipos técnicos)?"
+  },
+  {
+    "id": "hc_05",
+    "type": "open_ended",
+    "question": "Imagina que tienes una capacidad limitada de 2 FTEs durante los próximos 6 meses para abordar el reto de Autos. Debes elegir entre: 1. Mejorar la calidad de los datos base (cliente y póliza), 2. Desarrollar modelos predictivos de cancelación o propensión a compra, 3. Construir un dashboard para seguimiento semanal del negocio. ¿Qué priorizarías y por qué? ¿Cómo justificarías esta decisión?"
+  }
+]

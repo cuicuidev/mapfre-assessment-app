@@ -1,0 +1,57 @@
+[
+  {
+    "id": "db_01",
+    "type": "open_ended",
+    "question": "Trabajas en el equipo de datos de la línea de Seguros de Autos.\n\nEn los últimos seis meses la compañía ha detectado que un 18 % de los clientes que contrataron su primera póliza de Autos no la renuevan al llegar el primer aniversario, especialmente los captados por canales digitales y algunos mediadores externos.\n\nLa dirección quiere comprender las causas, identificar los perfiles con mayor riesgo de fuga y diseñar palancas que mejoren la retención y el Margen de Contribución.\n\nPor empezar…¿Qué datos internos y externos considerarías relevantes para entender por qué los clientes de Autos no renuevan su póliza después del primer año?"
+  },
+  {
+    "id": "db_02",
+    "type": "open_ended",
+    "question": "¿Qué pasos seguirías para garantizar la calidad, trazabilidad y actualización de esos datos antes de analizarlos?"
+  },
+  {
+    "id": "db_03",
+    "type": "open_ended",
+    "question": "¿Qué técnicas aplicarías para descubrir los factores que influyen en la no renovación de las pólizas de Autos?"
+  },
+  {
+    "id": "db_04",
+    "type": "open_ended",
+    "question": "Menciona al menos tres variables que sospeches están relacionadas con la fuga y explica cómo comprobarías su impacto."
+  },
+  {
+    "id": "db_05",
+    "type": "open_ended",
+    "question": "Si tuvieras que construir un cuadro de mando para el equipo comercial y de fidelización, ¿qué indicadores incluirías y qué filtros/segmentaciones permitirías?"
+  },
+  {
+    "id": "db_06",
+    "type": "open_ended",
+    "question": "¿Cómo asegurarías que este producto analítico se traduzca en acciones concretas para los equipos de negocio (oficinas directas, delegadas y canal digital)?"
+  },
+  {
+    "id": "db_07",
+    "type": "open_ended",
+    "question": "Luego de un análisis exploratorio inicial, se encontraron los siguientes resultados en los datos de clientes con pólizas de Autos individuales: El 38% de los clientes no renuevan su póliza después de un año. ¿Plantearías un modelo para predecir la probabilidad de no renovación de pólizas de Autos? ¿Por qué sí o por qué no?"
+  },
+  {
+    "id": "db_08",
+    "type": "open_ended",
+    "question": "Con los insights presentados, ¿qué tres acciones concretas propondrías para mejorar la tasa de renovación en Autos?\n\nPriorízalas indicando impacto esperado y complejidad de implementación (Alta / Media / Baja)."
+  },
+  {
+    "id": "db_09",
+    "type": "open_ended",
+    "question": "¿Cómo evaluarías si las acciones funcionan?"
+  },
+  {
+    "id": "db_10",
+    "type": "open_ended",
+    "question": "Explica en un párrafo cómo este proyecto analítico se alinea con metas globales de la compañía (rentabilidad, fidelización y crecimiento multicanal)."
+  },
+  {
+    "id": "db_11",
+    "type": "open_ended",
+    "question": "Imagina que trabajas como analista de datos para una plataforma de e-commerce. El equipo de marketing quiere lanzar una campaña de fidelización para recompensar a nuestros clientes más valiosos. Tu primera tarea es identificar quiénes son esos clientes.\n\nPara ello, tienes acceso a la siguiente estructura de base de datos simplificada:\n\n-- Tabla de Clientes\nCREATE TABLE clientes (\n    id_cliente INT PRIMARY KEY,\n    nombre VARCHAR(100),\n    email VARCHAR(100),\n    fecha_registro DATE\n);\n\n\n-- Tabla de Pedidos\nCREATE TABLE pedidos (\n    id_pedido INT PRIMARY KEY,\n    id_cliente INT,\n    fecha_pedido DATE,\n    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)\n);\n\n\n-- Tabla con los detalles de cada pedido\nCREATE TABLE detalles_pedido (\n    id_detalle INT PRIMARY KEY,\n    id_pedido INT,\n    id_producto INT,\n    cantidad INT,\n    precio_unitario DECIMAL(10, 2),\n    FOREIGN KEY (id_pedido) REFERENCES pedidos(id_pedido)\n);\n\n\nTu tarea es definir qué es un 'cliente valioso' para nuestro negocio y luego escribir una consulta SQL que identifique a estos clientes. La definición queda completamente a tu criterio.\n\nEl resultado de tu consulta debe ser una lista de los clientes que cumplen tu criterio, junto con las métricas clave que usaste para definirlos. Por favor, añade comentarios en tu código para explicar tu razonamiento y justificar por qué tu definición de 'valioso' es útil para el negocio."
+  }
+]

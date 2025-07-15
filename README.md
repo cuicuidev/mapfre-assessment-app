@@ -22,15 +22,15 @@ https://mapfre-assessment-app-ec3iypw4pad2zfgpqeemgp.streamlit.app/?q=negocio&q=
 
 - Data Governance:
 ```
-https://mapfre-assessment-app-ec3iypw4pad2zfgpqeemgp.streamlit.app/?q=negocio&q=data_governance&pq=certificaciones
+https://mapfre-assessment-app-ec3iypw4pad2zfgpqeemgp.streamlit.app/?q=negocio&q=ia&q=data_governance&pq=certificaciones
 ```
 
 - Data Strategy:
 ```
-https://mapfre-assessment-app-ec3iypw4pad2zfgpqeemgp.streamlit.app/?q=negocio&q=data_strategy&pq=certificaciones
+https://mapfre-assessment-app-ec3iypw4pad2zfgpqeemgp.streamlit.app/?q=negocio&q=ia&q=data_strategy&pq=certificaciones
 ```
 
 - Jerárquico:
 ```
-https://mapfre-assessment-app-ec3iypw4pad2zfgpqeemgp.streamlit.app/?q=negocio&q=jerarquico&pq=certificaciones
+https://mapfre-assessment-app-ec3iypw4pad2zfgpqeemgp.streamlit.app/?q=negocio&q=carrera_jerarquica&pq=certificaciones
 ```

@@ -1,0 +1,204 @@
+[
+  {
+    "id": "dg_01",
+    "type": "multiple_choice",
+    "question": "¿Cuál de los siguientes dominios forma parte del marco DAMA-DMBOK?",
+    "options": [
+      "Gestión de Datos Maestros",
+      "Gestión de Proyectos",
+      "Gestión de Calidad Total",
+      "Gestión de Recursos Humanos"
+    ]
+  },
+  {
+    "id": "dg_02",
+    "type": "multiple_choice",
+    "question": "¿Qué principio establece que los datos deben estar disponibles cuando se necesitan?",
+    "options": [
+      "Oportunidad",
+      "Precisión",
+      "Integridad",
+      "Consistencia"
+    ]
+  },
+  {
+    "id": "dg_03",
+    "type": "multiple_choice",
+    "question": "¿Cuál es el objetivo principal del Gobierno del Dato?",
+    "options": [
+      "Asegurar la calidad, seguridad y uso responsable del dato",
+      "Automatizar todos los procesos de negocio",
+      "Reducir costes operativos",
+      "Aumentar la velocidad de procesamiento"
+    ]
+  },
+  {
+    "id": "dg_04",
+    "type": "multiple_choice",
+    "question": "¿Cuál es el propósito principal de un Data Steward en una organización?",
+    "options": [
+      "Garantizar la calidad y el uso correcto de los datos",
+      "Desarrollar modelos predictivos",
+      "Administrar bases de datos físicas",
+      "Diseñar interfaces de usuario"
+    ]
+  },
+  {
+    "id": "dg_05",
+    "type": "multiple_choice",
+    "question": "¿Qué dimensión de calidad de datos se refiere a la ausencia de duplicados?",
+    "options": [
+      "Unicidad",
+      "Precisión",
+      "Completitud",
+      "Consistencia"
+    ]
+  },
+  {
+    "id": "dg_06",
+    "type": "multiple_choice",
+    "question": "¿Cuál de los siguientes elementos es clave en un modelo de gobierno del dato efectivo?",
+    "options": [
+      "Catálogo de datos accesible y actualizado",
+      "Automatización de backups",
+      "Reducción del número de usuarios en la red",
+      "Uso exclusivo de datos estructurados"
+    ]
+  },
+  {
+    "id": "dg_07",
+    "type": "multiple_choice",
+    "question": "¿Qué es metadata?",
+    "options": [
+      "Datos que describen otros datos",
+      "Datos almacenados en la nube",
+      "Datos irrelevantes para la organización",
+      "Datos históricos"
+    ]
+  },
+  {
+    "id": "dg_08",
+    "type": "multiple_choice",
+    "question": "¿Qué rol es responsable de la calidad y uso adecuado de datos en un dominio específico?",
+    "options": [
+      "Data Owner",
+      "Data Engineer",
+      "Data Scientist",
+      "Business Analyst"
+    ]
+  },
+  {
+    "id": "dg_09",
+    "type": "multiple_choice",
+    "question": "¿Cuál es el principal beneficio de un catálogo de datos?",
+    "options": [
+      "Documentar y facilitar el acceso a activos de datos",
+      "Acelerar consultas SQL",
+      "Almacenar grandes volúmenes de datos",
+      "Automatizar backups"
+    ]
+  },
+  {
+    "id": "dg_10",
+    "type": "multiple_choice",
+    "question": "¿Qué técnica ayuda a asegurar que los datos están completos y sin errores?",
+    "options": [
+      "Validación de datos",
+      "Deducción",
+      "Indexación",
+      "Segmentación"
+    ]
+  },
+  {
+    "id": "dg_11",
+    "type": "multiple_choice",
+    "question": "¿Qué paso es fundamental al implementar un plan de calidad de datos?",
+    "options": [
+      "Auditoría inicial y definición de reglas de calidad",
+      "Eliminar todos los datos antiguos",
+      "Cambiar constantemente la metodología",
+      "Ignorar errores menores"
+    ]
+  },
+  {
+    "id": "dg_12",
+    "type": "multiple_choice",
+    "question": "¿Qué acción es prioritaria ante un incidente de pérdida de datos sensibles?",
+    "options": [
+      "Notificar a seguridad y analizar causa raíz",
+      "Ocultar el incidente para evitar problemas",
+      "Desactivar todos los sistemas",
+      "Documentar sin informar a nadie"
+    ]
+  },
+  {
+    "id": "dg_13",
+    "type": "multiple_choice",
+    "question": "¿Cuál es un método efectivo para superar la resistencia al gobierno del dato?",
+    "options": [
+      "Educar y demostrar beneficios con líderes involucrados",
+      "Imponer políticas sin explicación",
+      "Evitar comunicar los cambios",
+      "Quitar acceso a los usuarios"
+    ]
+  },
+  {
+    "id": "dg_14",
+    "type": "multiple_choice",
+    "question": "¿Qué métrica es útil para medir éxito en gobierno del dato?",
+    "options": [
+      "Calidad de datos y reducción de incidentes",
+      "Número de bases de datos",
+      "Tiempo en reuniones",
+      "Cantidad de usuarios registrados"
+    ]
+  },
+  {
+    "id": "dg_15",
+    "type": "multiple_choice",
+    "question": "¿Qué elemento facilita la coordinación entre equipos de datos y negocio?",
+    "options": [
+      "Comités multidisciplinares y acuerdos de niveles de servicio",
+      "Equipos trabajando aisladamente",
+      "Comunicación informal",
+      "Uso exclusivo de herramientas técnicas"
+    ]
+  },
+  {
+    "id": "dg_16",
+    "type": "multiple_choice",
+    "question": "¿Qué es una política de datos?",
+    "options": [
+      "Un conjunto de reglas para gestionar y proteger datos",
+      "Un informe mensual",
+      "Un tipo de dato",
+      "Un software de base de datos"
+    ]
+  },
+  {
+    "id": "dg_17",
+    "type": "multiple_choice",
+    "question": "¿Qué significa “calidad de datos” en gobierno del dato?",
+    "options": [
+      "La exactitud, completitud y consistencia de los datos",
+      "La rapidez en procesar datos",
+      "La cantidad de datos almacenados",
+      "El tamaño del equipo de datos"
+    ]
+  },
+  {
+    "id": "dg_18",
+    "type": "open_ended",
+    "question": "Describe cómo diseñarías un modelo de gobierno de datos efectivo para una organización que empieza a implementar data governance."
+  },
+  {
+    "id": "dg_19",
+    "type": "open_ended",
+    "question": "Explica cómo gestionarías un incidente crítico donde se detecta una pérdida o filtración de datos sensibles. ¿Qué pasos tomarías?"
+  },
+  {
+    "id": "dg_20",
+    "type": "open_ended",
+    "question": "¿Qué estrategias usarías para conseguir la adopción y compromiso de los usuarios y áreas de negocio con las políticas y prácticas de gobierno del dato?"
+  }
+]
