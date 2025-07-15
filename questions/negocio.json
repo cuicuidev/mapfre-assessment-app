@@ -1,0 +1,97 @@
+[
+  {
+    "id": "neg_01",
+    "type": "open_ended",
+    "question": "La tecnología es importante, pero entender el negocio, lo es aún más, para darle sentido a lo que hacemos ❤️\nEs por ello que te pedimos que respondas estas preguntillas sobre el negocio MAPFRE. ¿Estás preparado/a?"
+  },
+  {
+    "id": "neg_02",
+    "type": "open_ended",
+    "question": "¿Cuáles son las principales agrupaciones de negocio que existen en Seguros y Productos de Ahorro e Inversión?"
+  },
+  {
+    "id": "neg_03",
+    "type": "open_ended",
+    "question": "¿Cómo se calcula el Incremento neto Comercial?"
+  },
+  {
+    "id": "neg_04",
+    "type": "open_ended",
+    "question": "¿Como varían las pólizas de cartera en función de la temporalidad de análisis (diaria, mensual, trimestral, acumulada, TAM)?"
+  },
+  {
+    "id": "neg_05",
+    "type": "open_ended",
+    "question": "Identifica las principales figuras comerciales, o grupos de mediadores, que trabajan para Mapfre:"
+  },
+  {
+    "id": "neg_06",
+    "type": "open_ended",
+    "question": "¿Cuales son los principales canales de venta del negocio digital?"
+  },
+  {
+    "id": "neg_07",
+    "type": "open_ended",
+    "question": "¿Cual es la principal diferencia entre una oficina directa y una oficina delegada?"
+  },
+  {
+    "id": "neg_08",
+    "type": "open_ended",
+    "question": "¿Cuales son las principales fechas de análisis de un siniestro?"
+  },
+  {
+    "id": "neg_09",
+    "type": "open_ended",
+    "question": "Enumera principales sistemas de emisión de pólizas dentro del ámbito de seguros NO Vida:"
+  },
+  {
+    "id": "neg_10",
+    "type": "open_ended",
+    "question": "¿Qué es un programa de incentivación?"
+  },
+  {
+    "id": "neg_11",
+    "type": "open_ended",
+    "question": "¿Qué es una gestión de vencimiento?"
+  },
+  {
+    "id": "neg_12",
+    "type": "open_ended",
+    "question": "¿Que entendemos por índice de relación de un cliente?"
+  },
+  {
+    "id": "neg_13",
+    "type": "open_ended",
+    "question": "Si miramos en GESYCORE. ¿Qué es lo que podemos encontrarnos?"
+  },
+  {
+    "id": "neg_14",
+    "type": "open_ended",
+    "question": "Si miramos en STCAT. ¿Qué es lo que podemos encontrarnos?"
+  },
+  {
+    "id": "neg_15",
+    "type": "open_ended",
+    "question": "¿Cómo defines una cartera administrada?"
+  },
+  {
+    "id": "neg_16",
+    "type": "open_ended",
+    "question": "¿Cuáles son los principales suplementos asociados a una póliza?"
+  },
+  {
+    "id": "neg_17",
+    "type": "open_ended",
+    "question": "Si tuviésemos que hacer un ejercicio de análisis de cotizaciones... ¿A qué sistema de MAPFRE iríamos a consultar?"
+  },
+  {
+    "id": "neg_18",
+    "type": "open_ended",
+    "question": "¿Cuales son los principales elementos de cálculo del Margen de Contribución?"
+  },
+  {
+    "id": "neg_19",
+    "type": "open_ended",
+    "question": "¿Dónde tramitamos principalmente los siniestros de Autos?"
+  }
+]

@@ -1,0 +1,227 @@
+[
+  {
+    "id": "tec_01",
+    "type": "open_ended",
+    "question": "Se te proporciona un conjunto de datos con características de viviendas (metros cuadrados, número de habitaciones) y sus precios finales de venta. Tu tarea es construir un modelo que pueda estimar el precio de mercado de una vivienda. ¿De qué tipo de problema de machine learning estamos hablando?"
+  },
+  {
+    "id": "tec_02",
+    "type": "open_ended",
+    "question": "Hemos entrenado dos modelos para detectar fraude. El objetivo es minimizar los **falsos negativos** (fraudes no detectados), aceptando como máximo un 1% de ellos. El Modelo A tiene un ROC AUC de 0.84 y el Modelo B uno de 0.80. Viendo sus curvas ROC, ¿cuál elegirías y por qué?"
+  },
+  {
+    "id": "tec_03",
+    "type": "open_ended",
+    "question": "¿Qué logramos con Principal Component Analysis (PCA)?"
+  },
+  {
+    "id": "tec_04",
+    "type": "open_ended",
+    "question": "En un modelo de regresión, ¿qué significa un valor de R-cuadrado (R²) de 0.82?"
+  },
+  {
+    "id": "tec_05",
+    "type": "open_ended",
+    "question": "¿Cuándo es la métrica *accuracy* (precisión global) particularmente engañosa para evaluar un modelo de clasificación?"
+  },
+  {
+    "id": "tec_06",
+    "type": "open_ended",
+    "question": "¿Cómo escala el algoritmo KNN en función de la cantidad de datos (n) y dimensiones (d)?"
+  },
+  {
+    "id": "tec_07",
+    "type": "open_ended",
+    "question": "¿Qué es una red neuronal? ¿Qué tipos de redes neuronales conoces?"
+  },
+  {
+    "id": "tec_08",
+    "type": "open_ended",
+    "question": "¿Cómo funciona, en términos generales, una arquitectura Transformer con *self-attention*?"
+  },
+  {
+    "id": "tec_09",
+    "type": "open_ended",
+    "question": "¿Cómo entrena una red neuronal?"
+  },
+  {
+    "id": "tec_10",
+    "type": "open_ended",
+    "question": "¿Qué tipos de machine learning existen? ¿Cómo se ramifican? ¿Podrías poner ejemplos?"
+  },
+  {
+    "id": "tec_11",
+    "type": "open_ended",
+    "question": "¿Cómo funciona un Random Forest?"
+  },
+  {
+    "id": "tec_12",
+    "type": "open_ended",
+    "question": "¿Qué es el *overfitting* y por qué es un problema? ¿Cómo lo diagnosticamos y qué podemos hacer para mitigarlo?"
+  },
+  {
+    "id": "tec_13",
+    "type": "open_ended",
+    "question": "Qué opinas de este código para un problema de detección de fraude?\n```python\nX = df.drop(\"fraud\", axis=1)\ny = df.fraud\n\nimputer = SimpleImputer(strategy='mean')\nX_imputado = imputer.fit_transform(X)\n\nX_train, X_test, y_train, y_test = train_test_split(\n    X_imputado, y, test_size=0.4, random_state=42\n)\n\nknn = KNeighborsClassifier(n_neighbors=2)\nknn.fit(X_train, y_train)\n\ny_pred = knn.predict(X_test)\nprint(f\"Accuracy: {accuracy_score(y_test, y_pred):.4f}\")\n```"
+  },
+  {
+    "id": "tec_14",
+    "type": "open_ended",
+    "question": "Acabas de recibir un dataset para un problema de regresión. ¿Cuál sería una de las primeras visualizaciones que harías con la variable objetivo y por qué?"
+  },
+  {
+    "id": "tec_15",
+    "type": "open_ended",
+    "question": "Descubres que el número de helados vendidos y el número de ahogamientos en la playa tienen una correlación positiva alta. ¿Significa esto que vender helados causa ahogamientos?"
+  },
+  {
+    "id": "tec_16",
+    "type": "open_ended",
+    "question": "Tienes una característica como \"salario\" que contiene algunos valores extremadamente altos (millonarios en una empresa con salarios mayoritariamente modestos). Si tuvieras que rellenar valores faltantes (imputar), ¿qué medida de tendencia central sería más robusta: la media o la mediana? ¿Por qué?"
+  },
+  {
+    "id": "tec_17",
+    "type": "open_ended",
+    "question": "Realizas un test de hipótesis (como un test Chi-cuadrado) para evaluar la relación entre una característica categórica y la variable objetivo (también categórica). Obtienes un p-valor de 0.001. ¿Qué te sugiere este resultado sobre la característica?"
+  },
+  {
+    "id": "tec_18",
+    "type": "open_ended",
+    "question": "Para un problema de clasificación, ¿qué tipo de gráfico es ideal para visualizar la relación entre una característica categórica (ej: \"Tipo de Cliente\") y una característica numérica (ej: \"Gasto Total\")?"
+  },
+  {
+    "id": "tec_19",
+    "type": "open_ended",
+    "question": "¿Qué es un valor atípico (outlier) y por qué puede ser un problema para algunos modelos de machine learning?"
+  },
+  {
+    "id": "tec_20",
+    "type": "open_ended",
+    "question": "¿Cuál es la principal diferencia entre covarianza y correlación? ¿Por qué solemos preferir la correlación durante el EDA?"
+  },
+  {
+    "id": "tec_21",
+    "type": "open_ended",
+    "question": "Estás trabajando en un modelo para predecir el abandono de clientes. Una característica importante, \"Antigüedad del cliente\", tiene un 10% de valores nulos. Decides imputarlos con la media global de la antigüedad. ¿Qué riesgo potencial tiene esta estrategia que podría debilitar tu modelo?"
+  },
+  {
+    "id": "tec_22",
+    "type": "open_ended",
+    "question": "En tu análisis, encuentras que dos características, \"Años de Educación\" y \"Último Nivel Académico Alcanzado\", tienen una correlación de 0.95. ¿Qué implicaciones tiene esto si planeas usar un modelo de **regresión lineal**? ¿Y si usas un **Random Forest**?"
+  },
+  {
+    "id": "tec_23",
+    "type": "open_ended",
+    "question": "Menciona una técnica o método gráfico y uno numérico para identificar valores atípicos."
+  },
+  {
+    "id": "tec_24",
+    "type": "open_ended",
+    "question": "Imagina que te entrego un dataset para un problema de clasificación y te digo: \"Aquí tienes los datos, necesito un modelo para la próxima semana\". Describe los pasos que seguirías en tu Análisis Exploratorio de Datos (EDA) antes de entrenar el primer modelo."
+  },
+  {
+    "id": "tec_25",
+    "type": "open_ended",
+    "question": "Una característica tiene un 30% de valores perdidos. ¿Cuál sería tu proceso mental para decidir cómo manejarlos? ¿Qué opciones considerarías?"
+  },
+  {
+    "id": "tec_26",
+    "type": "open_ended",
+    "question": "Un compañero te dice: \"He realizado tests de hipótesis para todas mis 100 características contra la variable objetivo. He descartado todas las que tenían un p-valor mayor a 0.05 y ahora mi modelo será más simple y mejor\". ¿Qué posibles problemas o falacias ves en este razonamiento?"
+  },
+  {
+    "id": "tec_27",
+    "type": "open_ended",
+    "question": "Has completado tu análisis y necesitas presentar tus hallazgos clave a un equipo de negocio que no tiene conocimientos de estadística. ¿Qué tipo de visualizaciones elegirías para comunicarles la importancia de las 3 características principales que descubriste? ¿Y qué evitarías?"
+  },
+  {
+    "id": "tec_28",
+    "type": "open_ended",
+    "question": "Más allá de la media o la mediana, ¿por qué es fundamental analizar las medidas de dispersión (como la desviación estándar o el rango intercuartílico) de las características antes de entrenar un modelo? Pon un ejemplo práctico."
+  },
+  {
+    "id": "tec_29",
+    "type": "open_ended",
+    "question": "En Python, ¿cuál es la diferencia fundamental entre una lista (`list`) y una tupla (`tuple`)? ¿Cuándo preferirías usar una sobre la otra en un contexto de data science?"
+  },
+  {
+    "id": "tec_30",
+    "type": "open_ended",
+    "question": "Reescribe el siguiente bucle `for` usando una *list comprehension*. ¿Qué ventajas ofrece este enfoque?\n```python\nnumeros =\ncuadrados_pares = []\nfor num in numeros:\n    if num % 2 == 0:\n        cuadrados_pares.append(num * num)\n```"
+  },
+  {
+    "id": "tec_31",
+    "type": "open_ended",
+    "question": "¿Para qué sirven `*args` y `**kwargs` en la definición de una función en Python?"
+  },
+  {
+    "id": "tec_32",
+    "type": "open_ended",
+    "question": "¿Cuál es la diferencia entre el operador `==` y el operador `is` en Python?"
+  },
+  {
+    "id": "tec_33",
+    "type": "open_ended",
+    "question": "Estás procesando un archivo de logs muy grande (varios GB) que no cabe en memoria. Quieres leerlo línea por línea para extraer información. ¿Por qué un generador que use la palabra clave `yield` sería una solución mucho mejor que leer todo el archivo en una lista?"
+  },
+  {
+    "id": "tec_34",
+    "type": "open_ended",
+    "question": "Necesitas medir el tiempo de ejecución de varias funciones de preprocesamiento de datos. ¿Cómo podrías hacerlo de una manera reutilizable y elegante, sin tener que añadir código para medir el tiempo al principio y al final de cada función?"
+  },
+  {
+    "id": "tec_35",
+    "type": "open_ended",
+    "question": "En frameworks de machine learning como Keras o `lightgbm`, es común usar `callbacks`. ¿Podrías explicar qué es un 'callback' en este contexto y por qué son tan útiles durante el entrenamiento de un modelo?"
+  },
+  {
+    "id": "tec_36",
+    "type": "open_ended",
+    "question": "Tienes un dataset con 1 millón de IDs de usuarios y quieres comprobar rápidamente si un ID específico existe en tu colección. ¿Sería más eficiente almacenar estos IDs en una lista de Python o en un diccionario (o un conjunto, *set*)? ¿Por qué?"
+  },
+  {
+    "id": "tec_37",
+    "type": "open_ended",
+    "question": "A menudo, los scripts de análisis de datos se escriben de forma puramente procedimental. ¿En qué situaciones crees que valdría la pena estructurar el código usando **clases y objetos (Programación Orientada a Objetos)**?"
+  },
+  {
+    "id": "tec_38",
+    "type": "open_ended",
+    "question": "En SQL, ¿cuál es la diferencia principal entre un `INNER JOIN` y un `LEFT JOIN` al unir una tabla `A` (izquierda) y una tabla `B` (derecha)?"
+  },
+  {
+    "id": "tec_39",
+    "type": "open_ended",
+    "question": "Escribe una consulta SQL para encontrar el salario promedio (`salario_promedio`) y el número de empleados (`num_empleados`) por cada departamento en una tabla llamada `empleados` que tiene las columnas `id_departamento`, `nombre_empleado` y `salario`."
+  },
+  {
+    "id": "tec_40",
+    "type": "open_ended",
+    "question": "Estás trabajando en una nueva funcionalidad en una rama llamada `feature/new-analysis`. Has realizado varios cambios y quieres guardarlos en tu repositorio local. ¿Qué tres comandos de Git usarías en secuencia para hacerlo?"
+  },
+  {
+    "id": "tec_41",
+    "type": "open_ended",
+    "question": "En SQL, ¿cuál es la diferencia fundamental entre la cláusula `WHERE` y la cláusula `HAVING`? ¿Cuándo usarías cada una?"
+  },
+  {
+    "id": "tec_42",
+    "type": "open_ended",
+    "question": "¿Qué es una \"branch\" (rama) en Git? ¿Por qué es una buena práctica trabajar en ramas separadas en lugar de hacer todos los cambios directamente en la rama `main` (o `master`)?"
+  },
+  {
+    "id": "tec_43",
+    "type": "open_ended",
+    "question": "Imagina que tienes una tabla de ventas con `fecha`, `id_producto` y `monto_venta`. Quieres calcular, para cada venta, el total de ventas acumulado para ese producto hasta esa fecha (un *running total*). ¿Cómo abordarías este problema usando SQL?"
+  },
+  {
+    "id": "tec_44",
+    "type": "open_ended",
+    "question": "Describe el flujo de trabajo de un *Pull Request* (PR) y por qué es una pieza central en el desarrollo colaborativo de software y proyectos de data science."
+  },
+  {
+    "id": "tec_45",
+    "type": "open_ended",
+    "question": "Estás escribiendo una consulta SQL compleja que requiere varios pasos intermedios (por ejemplo, primero filtras usuarios, luego calculas sus gastos agregados y finalmente los unes con otra tabla de información demográfica). ¿Qué herramienta de SQL podrías usar para hacer esta consulta más legible y modular en lugar de anidar múltiples subconsultas?"
+  }
+]
