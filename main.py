@@ -2,220 +2,250 @@ import streamlit as st
 import json
 import os
 import uuid
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
+import time
+import re
 
 import boto3
 from botocore.exceptions import NoCredentialsError, PartialCredentialsError, ClientError
+from streamlit.components.v1 import html
 
-# --- LOADING FUNCTIONS ---
+# --- CONFIGURATION ---
+QUESTIONNAIRE_DURATION_SECONDS = 60 
+S3_SESSION_PREFIX = "sessions/" 
+S3_FINAL_RESPONSE_PREFIX = "responses/" 
+
+
+# --- BOTO3 S3 HELPER FUNCTIONS ---
 
 def get_s3_client():
     """Initializes and returns a boto3 S3 client using Streamlit secrets."""
     try:
-        s3_client = boto3.client(
+        return boto3.client(
             "s3",
             aws_access_key_id=st.secrets.aws.aws_access_key_id,
             aws_secret_access_key=st.secrets.aws.aws_secret_access_key,
-            region_name=st.secrets.aws.get("aws_region") # .get() is safer
+            region_name=st.secrets.aws.get("aws_region")
         )
-        return s3_client
-    except (NoCredentialsError, PartialCredentialsError):
-        st.error("AWS credentials not found. Please configure your secrets.toml file.")
-        return None
-    except Exception as e:
-        st.error(f"An error occurred while connecting to AWS: {e}")
+    except (NoCredentialsError, PartialCredentialsError, ClientError) as e:
+        st.error(f"AWS connection error: {e}")
         return None
 
-def load_question_module(module_name):
-    """Loads a single question module from the 'questions' folder."""
-    file_path = os.path.join("questions", f"{module_name}.json")
+def get_session_key(questionnaire_id, email):
+    """Creates a standardized, safe S3 key for a session file."""
+    safe_email = re.sub(r'[^a-zA-Z0-9_.-@]', '_', email)
+    return f"{S3_SESSION_PREFIX}{questionnaire_id}/{safe_email}.json"
+
+def get_or_create_session(s3_client, bucket_name, questionnaire_id, participant_info):
+    """Retrieves an existing session from S3 or creates a new one."""
+    s3_key = get_session_key(questionnaire_id, participant_info['email'])
     try:
-        with open(file_path, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except FileNotFoundError:
-        st.error(f"Error: Questionnaire module '{module_name}.json' not found.")
-        return []
-    except json.JSONDecodeError:
-        st.error(f"Error: The file '{module_name}.json' is not a valid JSON.")
-        return []
-
-def load_questionnaire_from_query(module_names):
-    """Loads and concatenates questions from a list of module names."""
-    all_questions = []
-    for module_name in module_names:
-        questions = load_question_module(module_name)
-        if not questions: # Stop if any module fails to load
-            return None
-        all_questions.extend(questions)
-    return all_questions
-
-# --- RESPONSE HANDLING FUNCTIONS ---
-
-
-def has_submitted_to_s3(email, questionnaire_id):
-    """Checks the S3 bucket to see if a participant has already submitted."""
-    s3_client = get_s3_client()
-    if not s3_client:
-        st.error("Cannot check for previous submissions due to AWS connection issue.")
-        return True # Fail safely by blocking submission
-
-    bucket_name = st.secrets.aws.s3_bucket_name
-    prefix = "responses/"
-    
-    try:
-        paginator = s3_client.get_paginator('list_objects_v2')
-        pages = paginator.paginate(Bucket=bucket_name, Prefix=prefix)
-        for page in pages:
-            # Check if the page contains any objects
-            if "Contents" not in page:
-                continue
-
-            for obj in page['Contents']:
-                # --- FIX STARTS HERE ---
-                # 1. Skip any object that is empty (like a folder placeholder)
-                if obj['Size'] == 0:
-                    continue
-                
-                # 2. Add a try-except block as a safety net for any other non-JSON files
-                try:
-                    response_obj = s3_client.get_object(Bucket=bucket_name, Key=obj['Key'])
-                    data = json.loads(response_obj['Body'].read().decode('utf-8'))
-                    
-                    if (data.get("participant_info", {}).get("email") == email and
-                        data.get("questionnaire_id") == questionnaire_id):
-                        return True # Found a match
-                except (json.JSONDecodeError, ClientError) as e:
-                    # Log the error for debugging but don't crash the app
-                    st.warning(f"Skipping a non-JSON or inaccessible object in S3: {obj['Key']}. Error: {e}")
-                    continue
-                # --- FIX ENDS HERE ---
-
-        return False # No matching submission found after checking all objects
-    
+        response = s3_client.get_object(Bucket=bucket_name, Key=s3_key)
+        session_data = json.loads(response['Body'].read().decode('utf-8'))
+        return session_data
     except ClientError as e:
-        # This handles errors with the listing operation itself
-        st.error(f"Error listing S3 objects: {e}. Assuming no prior submission.")
-        return False # Allow user to proceed if the check fails
-    
-def save_response_to_s3(questionnaire_id, participant_info, responses):
-    """Constructs the response JSON and uploads it to the configured S3 bucket."""
-    s3_client = get_s3_client()
-    if not s3_client:
-        st.error("Could not save response due to AWS connection issue.")
-        return # Stop if client fails
+        if e.response['Error']['Code'] == 'NoSuchKey':
+            new_session_data = {
+                "session_id": str(uuid.uuid4()),
+                "questionnaire_id": questionnaire_id,
+                "participant_info": participant_info,
+                "status": "in-progress",
+                "start_time_iso": datetime.now(timezone.utc).isoformat(),
+                "last_update_iso": datetime.now(timezone.utc).isoformat(),
+                "responses": {}
+            }
+            try:
+                s3_client.put_object(
+                    Bucket=bucket_name,
+                    Key=s3_key,
+                    Body=json.dumps(new_session_data, indent=4),
+                    ContentType="application/json"
+                )
+                return new_session_data
+            except ClientError as put_e:
+                st.error(f"Failed to create new session in S3: {put_e}")
+                return None
+        else:
+            st.error(f"Could not retrieve session from S3: {e}")
+            return None
 
-    submission_id = str(uuid.uuid4())
-    timestamp = datetime.now().isoformat()
-
-    response_data = {
-        "submission_id": submission_id,
-        "questionnaire_id": questionnaire_id,
-        "participant_info": participant_info,
-        "responses": responses,
-        "submitted_at": timestamp
-    }
-    
-    # Convert dict to JSON string
-    json_body = json.dumps(response_data, indent=4, ensure_ascii=False)
-    
-    bucket_name = st.secrets.aws.s3_bucket_name
-    # Define a structured key (like a file path)
-    s3_key = f"responses/{questionnaire_id}/response_{submission_id}.json"
-
+def update_session_responses(s3_client, bucket_name, session_data, new_responses):
+    """Updates the responses in the S3 session file."""
+    session_data["responses"] = new_responses
+    session_data["last_update_iso"] = datetime.now(timezone.utc).isoformat()
+    s3_key = get_session_key(session_data['questionnaire_id'], session_data['participant_info']['email'])
     try:
         s3_client.put_object(
             Bucket=bucket_name,
             Key=s3_key,
-            Body=json_body,
+            Body=json.dumps(session_data, indent=4),
             ContentType="application/json"
         )
-        return True # Indicate success
+        return True
     except ClientError as e:
-        st.error(f"An error occurred while saving to S3: {e}")
-        return False # Indicate failure
+        print(f"Background save failed: {e}")
+        return False
 
-# --- DISPLAY FUNCTION ---
+def finalize_submission(s3_client, bucket_name, final_session_data):
+    """Saves the final data and moves the session file to the responses folder."""
+    final_session_data['status'] = 'completed'
+    final_session_data["last_update_iso"] = datetime.now(timezone.utc).isoformat()
+    
+    old_key = get_session_key(final_session_data['questionnaire_id'], final_session_data['participant_info']['email'])
+    new_key = old_key.replace(S3_SESSION_PREFIX, S3_FINAL_RESPONSE_PREFIX, 1)
 
-def display_question(question_data):
-    """Displays a single question and returns the response."""
+    try:
+        s3_client.put_object(
+            Bucket=bucket_name, Key=new_key, Body=json.dumps(final_session_data, indent=4), ContentType="application/json"
+        )
+        s3_client.delete_object(Bucket=bucket_name, Key=old_key)
+        return True
+    except ClientError as e:
+        st.error(f"Failed to finalize submission file: {e}")
+        return False
+
+
+# --- UI AND TIMER FUNCTIONS ---
+
+def load_questionnaire_from_query(module_names):
+    all_questions = []
+    for name in module_names:
+        file_path = os.path.join("questions", f"{name}.json")
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                all_questions.extend(json.load(f))
+        except (FileNotFoundError, json.JSONDecodeError):
+            st.error(f"Module '{name}.json' not found or invalid.")
+            continue
+    return all_questions if all_questions else None
+
+def display_question(question_data, saved_response):
     st.subheader(question_data['question'])
     q_type = question_data.get("type", "open_ended")
     options = question_data.get("options", [])
-    question_id = question_data["id"]
+    q_id = question_data["id"]
 
-    # Use the question_id as the key to ensure uniqueness across modules
     if q_type == "open_ended":
-        return st.text_area("Your Answer", key=question_id, height=150)
+        return st.text_area("Your Answer", value=saved_response or "", key=q_id, height=150)
     elif q_type == "multiple_choice":
-        return st.radio("Choose one:", options, key=question_id)
+        index = options.index(saved_response) if saved_response in options else 0
+        return st.radio("Choose one:", options, index=index, key=q_id)
     elif q_type == "multi_select":
-        return st.multiselect("Select all that apply:", options, key=question_id)
-    return None
+        valid_saved = [opt for opt in saved_response if isinstance(saved_response, list) and opt in options]
+        return st.multiselect("Select all that apply:", options, default=valid_saved, key=q_id)
+
+def run_timer_component(end_time):
+    end_time_ms = int(end_time.timestamp() * 1000)
+    js_code = f"""
+    <div id="t-container" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        <h4 style="margin-top: 0; margin-bottom: 5px;">Time Remaining</h4>
+        <div id="t-countdown" style="font-size: 2em; font-weight: bold; color: #dc3545;">--:--</div>
+    </div>
+    <script>
+    (function() {{
+        const endTime = {end_time_ms};
+        const timerEl = document.getElementById("t-countdown");
+        if (!timerEl) return;
+        const interval = setInterval(function() {{
+            const dist = endTime - new Date().getTime();
+            if (dist < 0) {{
+                clearInterval(interval);
+                timerEl.innerHTML = "00:00";
+                // THIS IS THE FIX: Force a reload of the main page.
+                window.parent.location.reload();
+                return;
+            }}
+            const mins = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+            const secs = Math.floor((dist % (1000 * 60)) / 1000);
+            timerEl.innerHTML = (mins<10?"0":"")+mins+":"+(secs<10?"0":"")+secs;
+        }}, 1000);
+    }})();
+    </script>
+    """
+    # We no longer need the return value from this component
+    html(js_code, height=100)
 
 # --- MAIN APPLICATION ---
-
 def main():
     st.title("On-the-Fly Questionnaire Application")
 
-    # Get all values for the 'q' parameter, preserving order
     module_names = st.query_params.get_all("q")
-
     if not module_names:
-        st.warning("Please use an invitation link that specifies the questionnaire modules (e.g., ?q=module1&q=module2).")
+        st.warning("Please use a valid invitation link.")
         return
 
-    # Create a unique, order-dependent ID for this combination of questionnaires
     questionnaire_id = "-".join(module_names)
+    s3_client = get_s3_client()
+    if not s3_client: return
 
-    # Load the full questionnaire from the modules in the URL
-    questionnaire = load_questionnaire_from_query(module_names)
-    if not questionnaire:
-        st.stop()
+    bucket_name = st.secrets.aws.s3_bucket_name
+    session_data_key = f"session_data_{questionnaire_id}"
 
-    st.header("Participant Information")
-    
-    # Session state key is now unique to the specific questionnaire combination
-    session_key = f"participant_info_{questionnaire_id}"
-
-    if session_key not in st.session_state:
+    if session_data_key not in st.session_state:
         with st.form("participant_form"):
             full_name = st.text_input("Full Name")
             email = st.text_input("Email")
-            submitted_info = st.form_submit_button("Start Questionnaire")
-
-            if submitted_info:
+            if st.form_submit_button("Start or Resume Assessment"):
                 if full_name and email:
-                    st.session_state[session_key] = {"full_name": full_name, "email": email}
-                    st.rerun()
+                    participant_info = {"full_name": full_name, "email": email}
+                    session_data = get_or_create_session(s3_client, bucket_name, questionnaire_id, participant_info)
+                    if session_data:
+                        st.session_state[session_data_key] = session_data
+                        st.rerun()
                 else:
                     st.error("Please enter your full name and email.")
-    else:
-        participant_info = st.session_state[session_key]
-        st.info(f"Participant: {participant_info['full_name']} ({participant_info['email']})")
+        st.stop()
+    
+    # --- SESSION LOADED ---
+    current_session = st.session_state[session_data_key]
 
-        if has_submitted_to_s3(participant_info['email'], questionnaire_id):
-            st.error("You have already completed this questionnaire. Thank you for your participation!")
-            st.stop()
+    # GATE 1: Check if already completed
+    if current_session.get("status") == "completed":
+        st.success("You have already completed this assessment. Thank you!")
+        st.balloons()
+        st.stop()
 
-        # Create a user-friendly title from the module names
-        title = " & ".join([name.replace('_', ' ').title() for name in module_names])
-        st.header(f"Questionnaire: {title}")
-        st.markdown("---")
-        
-        with st.form("questionnaire_form"):
-            responses = {}
-            for q_data in questionnaire:
-                response = display_question(q_data)
-                responses[q_data['id']] = response
+    # --- TIMER AND TIMEOUT LOGIC ---
+    start_time = datetime.fromisoformat(current_session['start_time_iso'])
+    end_time = start_time + timedelta(seconds=QUESTIONNAIRE_DURATION_SECONDS)
+    
+    with st.sidebar:
+        run_timer_component(end_time)
 
-            submitted = st.form_submit_button("Submit Responses")
+    # GATE 2: This server-side check now catches reloads triggered by the JS timer
+    if datetime.now(timezone.utc) >= end_time:
+        if finalize_submission(s3_client, bucket_name, current_session):
+            del st.session_state[session_data_key]
+            st.warning("## Time has expired")
+            st.info("Your assessment has been automatically submitted with your last saved answers.")
+            st.info("You may now close this browser tab.")
+        else:
+            st.error("A critical error occurred while finalizing your submission. Please contact an administrator.")
+        st.stop()
 
-            if submitted:
-                save_response_to_s3(questionnaire_id, participant_info, responses)
-                st.success("Your responses have been successfully submitted! Thank you.")
-                st.balloons()
-                del st.session_state[session_key]
-                st.stop()
+    # --- If not completed and not timed out, display the assessment ---
+    questionnaire = load_questionnaire_from_query(module_names)
+    if not questionnaire: st.stop()
+    
+    st.info(f"Participant: {current_session['participant_info']['full_name']} (Session is auto-saved)")
+
+    live_responses = {}
+    saved_responses = current_session.get("responses", {})
+    for q_data in questionnaire:
+        live_responses[q_data['id']] = display_question(q_data, saved_responses.get(q_data['id']))
+
+    # AUTO-SAVE ON CHANGE
+    if live_responses != saved_responses:
+        if update_session_responses(s3_client, bucket_name, current_session, live_responses):
+            st.session_state[session_data_key]['responses'] = live_responses
+            st.rerun()
+
+    # MANUAL FINAL SUBMISSION
+    if st.button("Submit Final Answers"):
+        current_session['responses'] = live_responses
+        if finalize_submission(s3_client, bucket_name, current_session):
+            st.session_state[session_data_key]['status'] = 'completed'
+            st.rerun()
 
 if __name__ == "__main__":
     main()
